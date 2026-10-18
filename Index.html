@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>แผนที่ร่างกายมนุษย์ – สมุดเรียนกายวิภาค</title>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app" id="app">
+<div class="stage" id="stage"><canvas id="cv"></canvas></div>
+<div class="top"><h1 class="brand">แผนที่ร่างกายมนุษย์<span>โมเดลโครงกระดูก 3 มิติ</span></h1><p id="hint">ลากเพื่อหมุน</p></div>
+<div class="dock">
+<div class="ctl"><label for="rot">หมุน <b id="deg">0°</b></label><input id="rot" type="range" min="0" max="360" value="0" step="1"></div>
+<div class="views"><button class="chip" type="button" data-v="0">หน้า</button><button class="chip" type="button" data-v="90">ข้างซ้าย</button><button class="chip" type="button" data-v="180">หลัง</button><button class="chip" type="button" data-v="270">ข้างขวา</button><button class="chip" type="button" id="auto">หมุนเอง</button><button class="chip" type="button" id="rst">รีเซ็ต</button></div>
+</div>
+<aside class="panel" id="panel">
+<button class="grab" id="grab" type="button" aria-label="ย่อหรือขยายแผง"></button>
+<nav class="tabs" id="modeTabs"></nav>
+<div class="body">
+<section id="quizBox" hidden></section>
+<section class="detail" id="detail" aria-live="polite"></section>
+<section id="study1">
+<div class="tabs" id="regionTabs"></div>
+<div class="tabs" id="sysTabs"></div>
+<input class="search" id="q" type="search" placeholder="ค้นหาชื่อ เช่น หัวใจ, femur" aria-label="ค้นหา">
+<div class="list" id="list"></div>
+</section>
+<section id="study3" hidden>
+<h2 style="font-size:1.2rem">เพิ่มข้อมูลของคุณเอง</h2>
+<form id="f">
+<div class="two"><div><label for="n">ชื่อ (ภาษาไทย)</label><input id="n" required></div><div><label for="e">ชื่อภาษาอังกฤษ / ละติน</label><input id="e"></div></div>
+<div class="two"><div><label for="r">ส่วนของร่างกาย</label><select id="r"></select></div><div><label for="s">ระบบ</label><select id="s"></select></div></div>
+<div><label for="d">คำอธิบาย / หน้าที่</label><textarea id="d" rows="3" required></textarea></div>
+<div class="row"><button class="btn" type="submit">บันทึกข้อมูล</button></div>
+</form>
+<p class="hint" id="saveNote"></p>
+</section>
+</div>
+</aside>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
